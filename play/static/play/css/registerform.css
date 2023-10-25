@@ -1,0 +1,38 @@
+
+.registerform{
+	display: flex;
+	flex-direction: column;
+	width: 450px;
+	margin: auto;
+	padding: 1em;
+}
+
+.registerform input{
+	margin-bottom: 1rem;
+	padding: 10px;
+}
+.registerform input[type='submit']{
+	background-color: #5372F0;
+	border: none;
+}
+.registerform h2{
+	text-align: center;
+	background-color: #5372F0;
+	color: white;
+	padding: 1em 0em 1.5em 0em;
+	margin-bottom: 1em;
+}
+.registerform label{
+	margin-bottom: 10px;
+}
+.registerform input:focus-within{
+	border: 1px solid lightgray;
+	outline: lightgray;
+}
+.registerform input:valid{
+	border: 2px solid lightgray;
+}
+registerform input[type='submit']{
+	background-color: #5372F0;
+	border: none;
+}

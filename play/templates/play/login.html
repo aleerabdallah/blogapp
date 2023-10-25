@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <form class="login-form" method="post" action=" ">
+      {% csrf_token %}
+      <div><h3>Log in to your account</h3></div>
+      {{form.media}}
+      {{form.non_field_errors}}
+      {% for field in form %}
+          {{field.label_tag}}
+          {{field}}
+          {% if field.errors %}
+             {{field.errors | striptags }}
+          {% endif %}
+      {% endfor %}
+
+      <div class="login-button">
+        <button type="submit">Login</button>
+      </div>
+      <div class="forgot-join">
+        <p>Forgot your password <span>Reset Password</span></p>
+        <p>Don't have an account? <span>Join Now</span></p>
+      </div>
+    </form>
+
+    <!-- 
+      <div class="username">
+        <label for="">Username: </label>
+        <input type="text" name="username" id="username">
+      </div>
+      <div class="password">
+        <label>Password: </label>
+        <input type="password" name="password" id="password">
+      </div>
+     -->
+
+{% endblock content %}

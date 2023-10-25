@@ -1,0 +1,57 @@
+.login-form{
+  width: 500px;
+  box-shadow: 2px 5px 9px gray;
+  margin: auto;
+  margin-top: 5em;
+  margin-bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 3.5rem 3rem 3.5rem;
+}
+.login-form > div > h3{
+  margin: 1.4rem 0rem;
+  text-align: center;
+}
+.login-form label{
+  display: block;
+  width: 100%;
+  margin-bottom: .4rem;
+  margin-top: .9rem;
+}
+.login-form input{
+  display: block;
+  width: 100%;
+  margin-bottom: .3rem;
+  margin-top: .3rem;
+  padding: .7rem;
+  border: 1px solid #ccc;
+  border-radius: .35rem;
+}
+.login-form input:focus-visible{
+  border: 1px solid rgb(44, 12, 203);
+  outline: blue;
+}
+.login-button{
+  margin: .3rem 0rem;
+}
+.login-button button{
+  display: block;
+  width: 100%;
+  padding: .6rem;
+  border-radius: .3rem;
+  border: none;
+  color: #fff;
+  background-color: red;
+  cursor: pointer;
+}
+
+.forgot-join{
+  margin-top: .9rem; 
+}
+.forgot-join p{
+  text-align: center;
+  margin-bottom: .9rem;
+}
+.forgot-join p span{
+  color: red;
+}

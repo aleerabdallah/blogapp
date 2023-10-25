@@ -1,0 +1,23 @@
+form {
+  padding-top: 1em;
+  width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+}
+
+#id_first_name{
+  padding: 10px;
+  margin-bottom: 18px;
+}
+#id_last_name{
+  padding: 10px;
+  margin-bottom: 18px;
+  margin: 6em 0em 0em 0em;
+}
+label{
+  font-family: Arial;
+  font-weight: bold;
+  color: white;
+}
