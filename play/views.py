@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
-# username: admin  email: admin33@gmail.com     passw: 098765dd
+
 
 
 def index(request):
