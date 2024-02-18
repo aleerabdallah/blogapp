@@ -1,25 +1,29 @@
-{% extends 'base.html' %}
-
-{% block content %}
-{% load static %}
+{% extends 'base.html' %} {% block content %} {% load static %}
 <div>
-	<div class="cards">
-		{% for post in posts %}
-		<article class="card">
-			<div>
-				<img src="{% static 'play/images/moon.jpg' %}" alt="Moon icon">
-			</div>
-			<h3>{{post.title}}</h3>
-			<div class="content">
-				<p>{{post.body|truncatewords:20}}</p>
-			</div>
-			<div class="read-more">
-			    <a href="{% url 'post' post.id %}">Read more</a>
-		    </div>
-		</article>
-		{% endfor %}
-		
-	</div>
+  <div class="cards">
+    {% for post in posts %}
+    <article class="card">
+      <div>
+        <img src="{% static 'play/images/moon.jpg' %}" alt="Moon icon" />
+      </div>
+      <h3>{{post.title}}</h3>
+      <div class="content">
+        <p>{{post.body|truncatewords:20}}</p>
+      </div>
+      <div class="read-more">
+        <a href="{% url 'post' post.id %}">Read more</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  <section class="sidebar" style="background-color: red">
+    <div class="categories">
+      <h3>Categories</h3>
+    </div>
+    <div class="categories-list">
+      <span>Django</span>
+    </div>
+  </section>
 </div>
 
 {% endblock content %}

@@ -1,305 +1,39 @@
-{% load static %}
-{% load humanize %}
+{% load static %} {% load humanize %}
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title>Blog App</title>
-	<style type="text/css">
-		*{
-		  box-sizing: border-box;
-		  padding: 0;
-		  margin: 0;
-		  list-style: none;
-    }
-		:root{
-		  --primary: rgb(93, 11, 138);
-		  --secondary-color: rgb(134, 70, 70);
-		}
-		*input:focus{
-			border: 1px solid lightgray;
-		}
-		body{
-		  display: flex;
-		  flex-direction: column;
-		  background: white;
-		  font-family: Arial;
-/*		  font-family: sans-serif;*/
-		  font-size: 18px;
-		  padding: 3em;
-		  padding-top: 6em;
-		  position: relative;
-		  padding-bottom: 6rem;
-		}
-		p{
-			letter-spacing: 1px;
-		  word-spacing: 1px;
-/*		  font-size: 18px;*/
-		  line-height: 28px;
-		}
-		.main-wrapper{
-			padding: 2em;
-			display: grid;
-			grid-template-columns: 3fr 1.5fr;
-			grid-gap: 20px;
-		}
-		.sidebar{
-			border: 1px solid #ccc;
-			background-color: #fff;
-			height: 600px;
-			box-shadow: 5px 6px 9px rgba(250, 250, 250, 1.0);
-		}
-		.sidebar .categories {
-			background-color: rgb(20, 40, 60);
-			height: 10%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-		.sidebar .categories h3{
-			text-align: center;
-			color: #fff;
-		}
-		.categories-list{
-			display: flex;
-			justify-content: space-around;
-			margin-top: 1rem;
-			padding: .5rem;
-		}
-		.categories-list span {
-			border: 2px solid;
-			border-radius: 3px;
-			padding: .5rem;
-		}
-		.main-content{
-			grid-row-end: 2;
-		}
-	  header{
-      background-color: rgb(255, 254, 254);
-	    padding: 20px 0px;
-	    position: fixed;
-	    top: 0;
-	    left: 0;
-	    right: 0;
-	    z-index: 100;
-	    box-shadow: 1px -1px 10px black;
-	  }
-	  main{
-	  	flex-grow: 1;
-	  }
-	  footer{
-	  	height: 90px;
-	  	width: 100%;
-	  	background-color: rgb(20, 40, 60);
-	  	position: absolute;
-	  	bottom: 0;
-	  	right: 0;
-	  	left: 0;
-	  	margin-top: 6rem;
-	  }
-		.logo{
-		  margin-left: 2em;
-		}
-		.logo h1 span{
-			color: red;
-		}
-		.logo h1{
-			color: blueviolet;
-		}
-		nav{
-		  display: flex;
-		  justify-content: space-between;
-		  align-items: center;
-		  padding: 2px 10px;
-		}
-		.nav-links{
-		  flex: 1;
-		  text-align: end;
-		  position: relative;
-		  padding-right: 2em;
-		  /* background-color: var(--secondary-color); */
-		  width: 100%;
-		}
-		.nav-toggle{
-		  display: none;
-		}
-		.nav-links ul li{
-		  display: inline-block;
-		  margin-right: 3em;
-		  list-style: none;
-		  /*right: 2%;
-		  left: 2%;*/
-		  padding: .3rem;
-		  border: 1px solid back;
-		}
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		.nav-links ul li a{
-		  text-decoration: none;
-		  text-transform: uppercase;
-		  font-weight: bold;
-		  color: gray;
-		  text-align: center;
-		  width: 100%;
-		  height: auto;
-		  padding: .3rem;
-		  border: 1px solid #ccc;
-		}
-		/*/.nav-links ul li::after{
-			position: absolute;
-			content: " ";
-			display: block;
-			right: 48%;
-			left: 48%;
-			margin: auto;
-			height: 3px;
-			background-color: darkblue;
-   		bottom: 0;
-		}
-		.nav-links ul li:hover::after{
-			right: 1%;
-			left: 1%;
-			transition: 400ms;
-		}*/
-		.nav-links ul li a:hover{
-			background-color: rgb(170, 132, 35);
-		  border: 1px solid yellow;
-		  border-radius: 3px;
-		  color: #fff;
-		}
-		.cards{
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      grid-gap: 20px;
-    }
-    .card{
-    	padding: 0.8em;
-    	background-color: #fff;
-      display: grid;
-      grid-template-rows: max-content 200px 1fr;
-    }
-    .card img{
-      object-fit: cover;
-	    width: 100%;
-      height: 100%;
-    }
-    .read-more{
-    	border: 1px solid #ccc;
-    	display: flex;
-    	justify-content: center;
-    }
-    .read-more a{
-    	text-align: center;
-    	text-decoration: none;
-    }
-    .read-more a::after{
-    	content: " →";
-    	display: inline;
-    	height: 3px;
-    	color: red;
-    	padding-left: 3px;
-    	padding-right: 3px;
-    	font-weight: 700;
-    	font-size: 22px;
-    }
-    .post{
-    	padding: 2em;
-    	background-color: #fff;
-    	border-radius: 1em;
-    }
-    .post h1{
-    	text-align: center;
-    	margin-bottom: 2em;
-    }
-    form{
-    	margin: auto;
-    	width: 400px;
-    	padding: 1em;
-    	border: 1px solid #ccc;
-    	display: flex;
-    	flex-direction: column;
-    }
-    form input {
-    	padding: 10px;
-    	margin-bottom: 10px;
-    }
+    <title>Blog App</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    /> -->
+    <!-- <link rel="stylesheet" href="{% static 'play/css/main.css' %}" /> -->
+  </head>
+  <body id="body">
+    <header>
+      <nav>
+        <h1 class="logo">Design<span class="span">X</span></h1>
 
-    .comment{
-	  	width: 500px;
-	  	margin: auto;
-	  	margin-top: 4em;
-		  border: 1px solid #ccc; 
-		  display: flex;
-/*		  justify-content: space-between;*/
-		  padding: 1em;
-		}
-		.comment .author{
-		  margin-right: 1em;
-
-		}
-		.author h3{
-		  font-weight: lighter;
-		}
-		.timestamp{
-		  margin-bottom: 1em;
-		}
-		.content{
-		  display: flex;
-		  flex-direction: column;
-		  /* border: 1px solid #ccc; */
-		}
-	</style>
-</head>
-<body>
-  <header>
-    <nav>
-      <div class="logo">
-        <h1>Design<span>X</span></h1>
+        <div class="nav_links">
+          <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'posts' %}">All Posts</a></li>
+            <li><a href="{% url 'register' %}">Sign up</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="main-content">{% block content %} {% endblock %}</section>
+    </main>
+    <footer>
+      <div class="div-inner-wrapper">
+        <div></div>
       </div>
-      <input type="checkbox"  id="nav-toggle" class="nav-toggle">
-      <div class="nav-links">
-        <ul>
-        	<li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="{% url 'posts' %}">All Posts</a></li>
-          <li><a href="{% url 'register' %}">Sign up</a></li>
-        </ul>
-      </div>
-      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
-    </nav>
-  </header>
-  <main>
-   	<div class="main-wrapper">
-	   	<section class="main-content">
-	   		<!-- <div>
-          {% if messages %}
-           <ul class="messages">
-            {% for message in messages %}
-             <li>{{message}}</li>
-            {% endfor %}
-           </ul>
-          {% endif %}
-        </div> -->
-	   		{% block content %}
-
-	   	  {% endblock %}
-	   	</section>
-	   	<section class="sidebar">
-	   		<div class="categories">
-	   			<h3>Categories</h3>
-	   		</div>
-	   		<div class="categories-list">
-	   			{% for cat in categories %}
-	   			   <span>{{cat}}</span>
-	   			{% endfor %}
-	   		</div>
-	   	</section>
-   	</div>
-  </main>
-  <footer>
-   	 <div class="div-inner-wrapper">
-   	 	<div></div>
-   	 </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>

@@ -10,10 +10,9 @@ from django.contrib.auth import authenticate, login, logout
 
 
 
+
 def index(request):
-	categories = Category.objects.all()
-	context = {'categories': categories}
-	return render(request,'base.html', context)
+	return render(request,'play/home.html')
 
 def posts(request):
 	posts = Post.objects.all()
