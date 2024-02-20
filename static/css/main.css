@@ -184,7 +184,7 @@ nav {
 /*! The below styles are the About Us section  */
 
 #about {
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   place-items: center;
@@ -236,6 +236,141 @@ nav {
   }
 }
 /*! The above styles are for the ABout Us Section */
+
+/*? The below styles are for the Related Posts Section */
+
+#related_posts {
+  padding: 3rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  place-items: center;
+}
+
+.post_card {
+  width: 320px;
+  height: fit-content;
+  padding: 1rem 2rem;
+  box-shadow: 4px 4px 3px 3px black;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s ease-in;
+}
+
+.post_card:hover {
+  transform: translateY(-20px);
+}
+
+.post_head {
+  width: 230px;
+  height: 180px;
+  background: yellow;
+  margin: 1rem auto;
+}
+
+.post_title {
+  font-size: 1.2rem;
+  padding-bottom: 1.3rem;
+}
+
+.post_btn {
+  padding: 8px 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  background: #14283c;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.post_btn:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 768px) {
+  #related_posts {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    row-gap: 30px;
+  }
+}
+
+/*? The above styles are for the Related Posts Section */
+
+/*? The below styles are the New Letter section  */
+#news_letter {
+  padding: 2rem 3rem;
+}
+
+.newletter_wripper {
+  width: 99%;
+  padding: 4rem;
+  background: #14283c;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  cursor: pointer;
+
+  .div {
+    width: 48%;
+    text-align: center;
+  }
+}
+
+.newletter_title {
+  font-size: 3rem;
+  line-height: 3rem;
+  text-transform: capitalize;
+  color: #ffffff;
+}
+
+#input {
+  width: 70%;
+  height: 10vh;
+  font-size: 1.3rem;
+  outline: none;
+  border: 2px solid transparent;
+  padding-left: 20px;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+#input:focus {
+  outline: 2px solid #14283c;
+}
+
+.btn {
+  padding: 14px 18px;
+  font-size: 1.3rem;
+  background: #fff;
+  color: #14283c;
+}
+
+@media screen and (max-width: 768px) {
+  #news_letter {
+    padding: 2rem 1rem;
+  }
+  .newletter_wripper {
+    padding: 2rem 1rem;
+    width: 100%;
+
+    .div {
+      width: 100%;
+    }
+  }
+  .newletter_title {
+    font-size: 1.7rem;
+    line-height: 2rem;
+  }
+
+  #input {
+    width: 100%;
+    margin: 0px 0px 0.7rem 0px;
+  }
+}
+
+/*? The above styles are for the New Letter Section */
 
 /*! The below styles are the Footer  */
 
