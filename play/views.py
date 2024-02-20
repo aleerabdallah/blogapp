@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from . models import Post, Comment, Task, Category
-from . forms import CommentForm, NameForm, RegisterForm, AddToDo, LoginForm
+from . models import Post, Comment, Category
+from . forms import CommentForm, RegisterForm, LoginForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.contrib import messages
@@ -21,8 +21,8 @@ def posts(request):
 	return render(request, 'play/posts.html', context)
 
 
-def post(request, id):
-	post = Post.objects.get(id=id)
+def post(request, slug):
+	post = Post.objects.get(slug=slug)
 	comments = post.comments.filter(active=True)
 	if request.method == 'POST':
 		form = CommentForm(request.POST)
@@ -38,20 +38,6 @@ def post(request, id):
 		context = {'form': form, 'comments': comments, 'post': post}
 		return render(request, 'play/post.html', context)
 
-
-def test(request):
-	if request.method == 'POST':
-		form = NameForm(request.POST)
-		if form.is_valid():
-			form.clean()
-			return HttpResponse(form.cleaned_data.values())
-		else:
-			context = {'form': form, 'message': form.errors.as_data()}
-			return render(request, 'play/test.html', context)
-	else:
-		form = NameForm()
-		context = {'form': form}
-		return render(request, 'play/test.html', context)
 
 
 def register(request):
@@ -96,51 +82,7 @@ def login_view(request):
 		return render(request, 'play/login.html', context)
 
 
-def todolist(request):
-	tasks = Task.objects.all()
-	context = {'tasks': tasks}
 
-	return render(request, 'play/todolists.html', context)
-
-
-def todoHome(request):
-
-	return render(request, 'play/todoapp.html')
-
-def addtodo(request):
-	if request.method == 'POST':
-		form = AddToDo(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect('todolist')
-		else:
-			return HttpResponse("there is an error")
-
-	else:
-		form = AddToDo()
-		context = {'form': form}
-		return render(request, 'play/addtodo.html', context)
-
-
-def updatetodolist(request, id):
-	task = Task.objects.get(id=id)
-	form = AddToDo(instance=task)
-
-	if request.method == 'POST':
-		form = AddToDo(request.POST, instance=task)
-		if form.is_valid():
-			form.save()
-			return redirect('todolist')
-
-	context = {'form': form}
-	return render(request, 'play/updatetodo.html', context)
-
-def deletetodo(request, id=id):
-	task = Task.objects.get(id=id)
-	if request.method == 'POST':
-		task.delete()
-		return redirect('todolist')
-	return render(request, 'play/delete.html', {'task': task})
 
 
 
