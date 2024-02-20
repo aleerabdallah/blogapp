@@ -18,12 +18,18 @@
       <nav>
         <h1 class="logo">Design<span class="span">X</span></h1>
 
+        <img src="{% static 'play/images/menu.png' %}" alt="" id="openMenu" />
         <div class="nav_links">
           <ul>
             <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'posts' %}">All Posts</a></li>
             <li><a href="{% url 'register' %}">Sign up</a></li>
           </ul>
+          <img
+            src="{% static 'play/images/close.png' %}"
+            alt=""
+            id="closeMenu"
+          />
         </div>
       </nav>
     </header>

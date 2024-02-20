@@ -34,6 +34,7 @@ nav {
   top: 0;
   width: 100%;
   background: white;
+  z-index: 3;
 
   .logo {
     font-size: 2.2rem;
@@ -42,36 +43,78 @@ nav {
       color: #14283c;
     }
   }
+}
 
+.nav_links {
+  flex: 1;
+  text-align: right;
+
+  ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0px 25px;
+
+    a {
+      text-decoration: none;
+      font-size: 1.3rem;
+      color: #14283c;
+    }
+  }
+}
+
+.nav_links ul li::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  display: block;
+  background: #14283c;
+  margin: auto;
+  transition: 0.3s ease-in-out;
+}
+
+.nav_links ul li:hover::after {
+  width: 100%;
+}
+
+#openMenu,
+#closeMenu {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 5% 6%;
+    background: white;
+  }
   .nav_links {
-    flex: 1;
-    text-align: right;
+    position: absolute;
+    top: 65px;
+    left: -400px;
+    height: 28vh;
+    width: 100%;
+    background: #14283c;
+    text-align: center;
 
     ul li {
-      list-style-type: none;
-      display: inline-block;
-      padding: 0px 25px;
+      display: block;
+      font-size: 7rem;
 
       a {
-        text-decoration: none;
-        font-size: 1.3rem;
-        color: #14283c;
+        color: white;
       }
     }
   }
 
-  .nav_links ul li::after {
-    content: "";
-    width: 0;
-    height: 3px;
+  #openMenu,
+  #closeMenu {
     display: block;
-    background: #14283c;
-    margin: auto;
-    transition: 0.3s ease-in-out;
+    width: 40px;
   }
 
-  .nav_links ul li:hover::after {
-    width: 100%;
+  #closeMenu {
+    position: absolute;
+    top: 0;
+    right: 5px;
   }
 }
 
@@ -79,8 +122,8 @@ nav {
 
 /*? The below styles are the Hero Section */
 #hero {
-  margin-top: 5.5rem;
-  padding: 8rem 5rem;
+  margin-top: 6rem;
+  padding: 6rem 5rem;
   text-align: center;
   position: relative;
   z-index: -2;
@@ -118,48 +161,78 @@ nav {
   bottom: 10px;
   left: 130px;
 }
+
+@media screen and (max-width: 768px) {
+  #hero {
+    padding: 3.5rem 1.1rem;
+  }
+
+  .hero_title {
+    font-size: 2rem;
+  }
+
+  .hero_description {
+    font-size: 1.2rem;
+  }
+
+  .animate {
+    display: none;
+  }
+}
 /*? The above styles are for the Hero Section */
 
 /*! The below styles are the About Us section  */
 
 #about {
   padding: 4rem 2rem;
-
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   place-items: center;
   gap: 20px;
+}
 
-  .content_wripper {
-    width: 530px;
-    height: 70vh;
+.content_wripper {
+  width: 530px;
+  height: 70vh;
 
-    box-shadow: 3px 3px 4px 4px black;
+  box-shadow: 3px 3px 4px 4px black;
+}
+
+.languages_icons {
+  width: 630px;
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+}
+
+.icon_wripper {
+  width: 315px;
+  height: 35vh;
+  background: red;
+}
+
+.one {
+  background-color: blue;
+}
+.two {
+  background: green;
+}
+.three {
+  background: orange;
+}
+.four {
+  background: black;
+}
+
+@media screen and (max-width: 768px) {
+  #about {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
-
-  .languages_icons {
-    width: 630px;
-    display: flex;
-    flex-wrap: wrap;
-
-    .icon_wripper {
-      width: 315px;
-      height: 35vh;
-      background: red;
-    }
-
-    .one {
-      background-color: blue;
-    }
-    .two {
-      background: green;
-    }
-    .three {
-      background: orange;
-    }
-    .four {
-      background: black;
-    }
+  .content_wripper {
+    width: 325px;
+  }
+  .icon_wripper {
+    width: 325px;
   }
 }
 /*! The above styles are for the ABout Us Section */
