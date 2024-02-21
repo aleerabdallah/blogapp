@@ -1,40 +1,32 @@
-{% extends 'base.html' %}
-{% load static %}
-{% load humanize %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% load humanize %} {% block content
+%}
 
-  <article class="post">
-  	<div class="image-wrapper">
-  		<img src="{% static 'play/images/moon.jpg' %}">
-  	</div>
-  	<h1>{{post.title}}</h1>
-  	<div>
-  		<p>{{post.body|linebreaks}}</p>
-  	</div>
-  </article>
+<article class="post">
+  <div class="image-wrapper">
+    <img src="{% static 'play/images/moon.jpg' %}" />
+  </div>
+  <h1>{{post.title}}</h1>
   <div>
-    
-    {% load crispy_forms_tags %}
-  	<form method="post" action="">
-  		<h3>Leave a comment</h3>
-      {{ form}}
-  		{% csrf_token %}
-  		<input type="submit" value="Post Comment">
-  	</form>
+    <p>{{post.body|linebreaks}}</p>
   </div>
+</article>
+<div>
+  {% load crispy_forms_tags %}
+  <form method="post" action="">
+    <h3>Leave a comment</h3>
+    {{ form}} {% csrf_token %}
+    <input type="submit" value="Post Comment" />
+  </form>
+</div>
 
-  {% for c in comments %}
-  <div class="comment">
-    <div class="author">
-      <h3>{{c.name}}</h3>
-    </div>
-    <div class="content">
-      <div class="timestamp">{{c.created_on|naturalday}}</div>
-      <div>
-      {{c.body}}
-      </div>
-    </div>
+{% for c in comments %}
+<div class="comment">
+  <div class="author">
+    <h3>{{c.name}}</h3>
   </div>
-  {% endfor %}
-{% endblock content %}
-
+  <div class="content">
+    <div class="timestamp">{{c.created_on|naturalday}}</div>
+    <div>{{c.body}}</div>
+  </div>
+</div>
+{% endfor %} {% endblock content %}
