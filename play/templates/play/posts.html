@@ -1,27 +1,53 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 <div>
-  <div class="cards">
-    {% for post in posts %}
-    <article class="card">
-      <div>
-        <img src="{% static 'play/images/moon.jpg' %}" alt="Moon icon" />
-      </div>
-      <h3>{{post.title}}</h3>
-      <div class="content">
-        <p>{{post.body|truncatewords:20}}</p>
-      </div>
-      <div class="read-more">
-        <a href="{{post.get_absolute_url}}">Read more</a>
-      </div>
-    </article>
-    {% endfor %}
-  </div>
-  <section class="sidebar" style="background-color: red">
-    <div class="categories">
-      <h3>Categories</h3>
+  <section id="posts_sidebar">
+    <div class="card_container">
+      {% for post in posts %}
+      <article class="post_card_wripper">
+        <div class="image_wripper">
+          <img
+            src="{% static 'play/images/moon.jpg' %}"
+            alt="Moon icon"
+            class="img"
+          />
+        </div>
+        <h2 class="post_title">{{post.title}}</h2>
+        <p class="post_description">{{post.body|truncatewords:20}}</p>
+        <a href="{{post.get_absolute_url}}" class="read_more">Read more</a>
+      </article>
+      <article class="post_card_wripper">
+        <div class="image_wripper">
+          <img
+            src="{% static 'play/images/moon.jpg' %}"
+            alt="Moon icon"
+            class="img"
+          />
+        </div>
+        <h2 class="post_title">{{post.title}}</h2>
+        <p class="post_description">{{post.body|truncatewords:20}}</p>
+        <a href="{{post.get_absolute_url}}" class="read_more">Read more</a>
+      </article>
+      <article class="post_card_wripper">
+        <div class="image_wripper">
+          <img
+            src="{% static 'play/images/moon.jpg' %}"
+            alt="Moon icon"
+            class="img"
+          />
+        </div>
+        <h2 class="post_title">{{post.title}}</h2>
+        <p class="post_description">{{post.body|truncatewords:20}}</p>
+        <a href="{{post.get_absolute_url}}" class="read_more">Read more</a>
+      </article>
+      {% endfor %}
     </div>
-    <div class="categories-list">
-      <span>Django</span>
+    <div class="sidebar">
+      <div class="categories">
+        <h3>Categories</h3>
+      </div>
+      <div class="categories-list">
+        <span>Django</span>
+      </div>
     </div>
   </section>
 </div>

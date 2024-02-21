@@ -295,7 +295,7 @@ nav {
 
 /*? The above styles are for the Related Posts Section */
 
-/*? The below styles are the New Letter section  */
+/*! The below styles are the New Letter section  */
 #news_letter {
   padding: 2rem 3rem;
 }
@@ -370,72 +370,96 @@ nav {
   }
 }
 
-/*? The above styles are for the New Letter Section */
-
-/*! The below styles are the Footer  */
-
-footer {
-  height: 90px;
-  width: 100%;
-  background-color: #14283c;
-  margin-top: 6rem;
-}
-
-/*! The above styles are for the Footer */
+/*! The above styles are for the New Letter Section */
 
 /*Todo : The below styles are the posts Page  */
 
-.cards {
+#posts_sidebar {
+  /* background: gray; */
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 20px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  margin-top: 6rem;
+  padding: 0px 0.6rem;
 }
 
-.card {
-  padding: 0.8em;
-  background-color: #113345;
-}
-
-.card img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-.read-more {
-  border: 1px solid #ccc;
+.card_container {
+  grid-column: span 8 / span 8;
+  /* background: yellow; */
+  padding: 2rem 1rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-.read-more a {
+.sidebar {
+  grid-column: span 4 / span 4;
+  background: goldenrod;
+}
+
+.post_card_wripper {
+  padding: 0.8em;
+  box-shadow: 3px 3px 2px 2px #14283c;
+  width: 350px;
   text-align: center;
-  text-decoration: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-.read-more a::after {
-  content: " →";
-  display: inline;
-  height: 3px;
-  color: red;
-  padding-left: 3px;
-  padding-right: 3px;
-  font-weight: 700;
-  font-size: 22px;
+.post_card_wripper:hover {
+  .img {
+    transform: scale(1.1);
+  }
+}
+
+.image_wripper {
+  width: 280px;
+  height: 150px;
+  margin: 1rem auto;
+  background: green;
+  overflow: hidden;
+  border-radius: 10px;
+
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+  }
+}
+
+.post_title {
+  font-size: 1.3rem;
+}
+
+.post_description {
+  font-size: 1.1rem;
+}
+
+.read_more {
+  color: #fff;
+  background: #14283c;
+  padding: 8px 30px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+
+.read_more:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 768px) {
+  #posts_sidebar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /*Todo The above styles are for the posts Page */
-
-.post {
-  padding: 2em;
-  background-color: #fff;
-  border-radius: 1em;
-}
-
-.post h1 {
-  text-align: center;
-  margin-bottom: 2em;
-}
 
 form {
   margin: auto;
@@ -469,8 +493,57 @@ form input {
 .timestamp {
   margin-bottom: 1em;
 }
-.content {
+
+/*? The below styles are the Footer  */
+
+#footer {
+  padding: 3rem 4rem;
+  background-color: #14283c;
+  margin-top: 6rem;
   display: flex;
-  flex-direction: column;
-  /* border: 1px solid #ccc; */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
 }
+
+.footer_content {
+  width: 320px;
+  height: fit-content;
+  padding: 1.3rem 1rem;
+  text-align: center;
+  color: white;
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.4rem 0px;
+  }
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.follow {
+  padding-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.icon_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.footer_icon_wripper {
+  width: 50px;
+  height: 50px;
+  border: 3px solid white;
+  cursor: pointer;
+}
+
+/*? The above styles are for the Footer */
