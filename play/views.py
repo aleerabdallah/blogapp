@@ -30,7 +30,8 @@ def post(request, slug):
 			cd = form.cleaned_data
 			comment = Comment(post=post, name=cd['name'], email=cd['email'], body=cd['body'])
 			comment.save()
-			return redirect('posts')
+			messages.add_message(request, messages.SUCCESS, "Your message is being moderated!")
+			return redirect('post_detail', post.slug)
 		else:
 			return HttpResponse('Invalid')
 	else:
@@ -83,6 +84,12 @@ def login_view(request):
 
 
 
+def aboutUs(request):
+	return render(request, 'play/about.html')
+
+
+def contactUs(request):
+	return render(request, 'play/contact_us.html')
 
 
 
