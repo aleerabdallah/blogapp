@@ -1,27 +1,12 @@
-<<<<<<< HEAD
-{% extends 'base.html' %}
-{% load static %}
-{% load humanize %}
-{% block content %}
 
-  <article class="post">
-  	<div class="image-wrapper">
-  		<img src="{% static 'play/images/moon.jpg' %}">
-  	</div>
-  	<h1>{{post.title}}</h1>
-  	<div>
-  		<p>{{post.body| safe}}</p>
-  	</div>
-  </article>
-=======
+
 {% extends 'base.html' %} {% load static %} {% load humanize %} {% block
 content%}
 <article class="post">
   <div class="image-wrapper">
-    <img src="{% static 'play/images/moon.jpg' %}" />{% block content%}
+    <img src="{% static 'play/images/moon.jpg' %}" />
   </div>
   <h1>{{post.title}}</h1>
->>>>>>> origin/main
   <div>
     <p>{{post.body|safe}}</p>
   </div>
@@ -45,4 +30,5 @@ content%}
     <div>{{c.body}}</div>
   </div>
 </div>
-{% endfor %} {% endblock %}
+{% endfor %} 
+
