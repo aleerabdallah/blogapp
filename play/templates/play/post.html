@@ -1,12 +1,13 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load humanize %} 
+{% block content %}
 
-
-{% extends 'base.html' %} {% load static %} {% load humanize %} {% block
-content%}
-<article class="post">
-  <div class="image-wrapper">
-    <img src="{% static 'play/images/moon.jpg' %}" />
-  </div>
+<article class="single_post" style="margin-top: 8rem">
   <h1>{{post.title}}</h1>
+  <div class="image-wrapper">
+    <img src="{{post.img.url}}" />
+  </div>
   <div>
     <p>{{post.body|safe}}</p>
   </div>
@@ -32,3 +33,5 @@ content%}
 </div>
 {% endfor %} 
 
+
+{% endblock %}

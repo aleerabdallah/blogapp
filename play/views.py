@@ -12,7 +12,10 @@ from django.contrib.auth import authenticate, login, logout
 
 
 def index(request):
-	return render(request,'play/home.html')
+	posts = Post.objects.all()
+	context = {'posts': posts}
+
+	return render(request, 'play/home.html', context)
 
 def posts(request):
 	posts = Post.objects.all()
