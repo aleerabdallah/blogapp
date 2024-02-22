@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% load static %}
 <!--! Hero  -->
 <div id="hero">
   <h2 class="hero_title animate__animated animate__bounce">
@@ -18,18 +18,58 @@
 <!--! About Us  -->
 <section id="about">
   <div class="content_wripper languages_icons">
-    <div class="icon_wripper one"></div>
-    <div class="icon_wripper two"></div>
-    <div class="icon_wripper three"></div>
-    <div class="icon_wripper four"></div>
+    <div class="icon_wripper one">
+      <img src="{% static 'play/images/C.jpg' %}" alt="Moon icon" class="img" />
+    </div>
+    <div class="icon_wripper two">
+      <img
+        src="{% static 'play/images/python.jpg' %}"
+        alt="Moon icon"
+        class="img"
+      />
+    </div>
+    <div class="icon_wripper three">
+      <img
+        src="{% static 'play/images/javaScript.jpg' %}"
+        alt="Moon icon"
+        class="img"
+      />
+    </div>
+    <div class="icon_wripper four">
+      <img
+        src="{% static 'play/images/java.jpg' %}"
+        alt="Moon icon"
+        class="img"
+      />
+    </div>
   </div>
-  <div class="content_wripper"></div>
+  <div class="content_wripper">
+    <h1 class="about_title">All about Design<span>X</span></h1>
+    <p class="about_description">
+      Step into the world of knowledge and innovation with our blog, where we
+      warmly welcome you to explore a wealth of essential information
+      surrounding the latest in technology and other noteworthy events. Stay
+      ahead of the curve as we unravel the intricacies of the tech world and
+      bring you insightful updates on a diverse range of events. Whether you're
+      a tech enthusiast or simply curious about the world around you, our blog
+      is your go-to source for staying informed and engaged. Join us on this
+      exciting journey where information meets inspiration, and welcome to a
+      space where knowledge is key!
+    </p>
+    <button class="hero_btn">Discover</button>
+  </div>
 </section>
 
 <!--! Related Posts  -->
 <section id="related_posts">
   <div class="post_card">
-    <div class="post_head"></div>
+    <div class="post_head">
+      <img
+        src="{% static 'play/images/css.jpg' %}"
+        alt="Moon icon"
+        class="img"
+      />
+    </div>
     <h4 class="post_title">How to make a http request on API in python</h4>
     <button class="post_btn">Read More</button>
   </div>
@@ -65,4 +105,4 @@
   </div>
 </section>
 
-{% endblock %}
+{% endblock content %}

@@ -15,30 +15,6 @@
         <p class="post_description">{{post.body|truncatewords:20}}</p>
         <a href="{{post.get_absolute_url}}" class="read_more">Read more</a>
       </article>
-      <article class="post_card_wripper">
-        <div class="image_wripper">
-          <img
-            src="{% static 'play/images/moon.jpg' %}"
-            alt="Moon icon"
-            class="img"
-          />
-        </div>
-        <h2 class="post_title">{{post.title}}</h2>
-        <p class="post_description">{{post.body|truncatewords:20}}</p>
-        <a href="{{post.get_absolute_url}}" class="read_more">Read more</a>
-      </article>
-      <article class="post_card_wripper">
-        <div class="image_wripper">
-          <img
-            src="{% static 'play/images/moon.jpg' %}"
-            alt="Moon icon"
-            class="img"
-          />
-        </div>
-        <h2 class="post_title">{{post.title}}</h2>
-        <p class="post_description">{{post.body|truncatewords:20}}</p>
-        <a href="{{post.get_absolute_url}}" class="read_more">Read more</a>
-      </article>
       {% endfor %}
     </div>
 

@@ -4,7 +4,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>Blog App</title>
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     <!-- <link
@@ -19,7 +18,7 @@
         <h1 class="logo">Design<span class="span">X</span></h1>
 
         <img src="{% static 'play/images/menu.png' %}" alt="" id="openMenu" />
-        <div class="nav_links">
+        <div class="nav_links" id="nav_links">
           <ul>
             <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'posts' %}">All Posts</a></li>
@@ -35,6 +34,10 @@
     </header>
     <main>
       <section class="main-content">{% block content %} {% endblock %}</section>
+      <script
+        type="module"
+        src="{% static 'play/JavaScript/script.js'%}"
+      ></script>
     </main>
     <footer id="footer">
       <div class="footer_content">

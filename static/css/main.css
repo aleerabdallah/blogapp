@@ -88,12 +88,13 @@ nav {
   }
   .nav_links {
     position: absolute;
-    top: 65px;
+    top: -400px;
     left: 0;
-    height: 28vh;
+    height: 30vh;
     width: 100%;
     background: #14283c;
     text-align: center;
+    transition: 0.3s ease-in;
 
     ul li {
       display: block;
@@ -164,7 +165,7 @@ nav {
 
 @media screen and (max-width: 768px) {
   #hero {
-    padding: 3.5rem 1.1rem;
+    padding: 3.5rem 1.1rem 1.4rem 1.1rem;
   }
 
   .hero_title {
@@ -192,10 +193,19 @@ nav {
 }
 
 .content_wripper {
-  width: 530px;
-  height: 70vh;
+  width: 540px;
+  padding: 2rem;
+}
 
-  box-shadow: 3px 3px 4px 4px black;
+.about_title {
+  font-size: 2rem;
+  text-transform: capitalize;
+  padding-bottom: 1.2rem;
+}
+
+.about_description {
+  font-size: 1.3rem;
+  padding-bottom: 1.4rem;
 }
 
 .languages_icons {
@@ -203,6 +213,9 @@ nav {
   display: flex;
   flex-wrap: wrap;
   height: fit-content;
+  height: 70vh;
+  padding: 0px;
+  box-shadow: 3px 3px 4px 4px black;
 }
 
 .icon_wripper {
@@ -227,9 +240,18 @@ nav {
 @media screen and (max-width: 768px) {
   #about {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+    row-gap: 3rem;
+    padding-bottom: 35rem;
   }
   .content_wripper {
     width: 325px;
+    padding: 0.5rem;
+    /* margin-top: 8rem; */
+  }
+  .languages_icons {
+    margin-top: 0px;
+    order: 1;
+    padding: 0px;
   }
   .icon_wripper {
     width: 325px;
@@ -412,13 +434,13 @@ nav {
   background: green;
   overflow: hidden;
   border-radius: 10px;
+}
 
-  .img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.5s ease;
-  }
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease;
 }
 
 .post_title {
