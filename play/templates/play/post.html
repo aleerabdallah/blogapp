@@ -3,35 +3,37 @@
 {% load humanize %} 
 {% block content %}
 
-<article class="single_post" style="margin-top: 8rem">
-  <h1>{{post.title}}</h1>
-  <div class="image-wrapper">
-    <img src="{{post.img.url}}" />
-  </div>
+<div class="single_post_container">
+  <article class="single_post">
+    <h1 class="single_post_title">{{post.title}}</h1>
+    <div class="image-wrapper">
+      <img src="{{post.img.url}}" class="img" />
+    </div>
+    <div class="post_body">
+      <p>{{post.body|safe}}</p>
+    </div>
+  </article>
   <div>
-    <p>{{post.body|safe}}</p>
+    {% load crispy_forms_tags %}
+    <form method="post" action="">
+      <h3>Leave a comment</h3>
+      {{ form | crispy}} {% csrf_token %}
+      <input type="submit" value="Post Comment" />
+    </form>
   </div>
-</article>
-<div>
-  {% load crispy_forms_tags %}
-  <form method="post" action="">
-    <h3>Leave a comment</h3>
-    {{ form | crispy}} {% csrf_token %}
-    <input type="submit" value="Post Comment" />
-  </form>
+  
+  {% for c in comments %}
+  <div class="comment">
+    <div class="author">
+      <h3>{{c.name}}</h3>
+    </div>
+    <div class="content">
+      <div class="timestamp">{{c.created_on|naturalday}}</div>
+      <div>{{c.body}}</div>
+    </div>
+  </div>
+  {% endfor %} 
 </div>
-
-{% for c in comments %}
-<div class="comment">
-  <div class="author">
-    <h3>{{c.name}}</h3>
-  </div>
-  <div class="content">
-    <div class="timestamp">{{c.created_on|naturalday}}</div>
-    <div>{{c.body}}</div>
-  </div>
-</div>
-{% endfor %} 
 
 
 {% endblock %}

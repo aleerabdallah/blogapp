@@ -580,6 +580,33 @@ form input {
 
 /*? The above styles are for the Footer */
 
-.single_post {
-  margin-top: 20rem;
+/*! The below styles are for the Single Post */
+.single_post_container {
+  width: 1000px;
+  margin: 3rem auto;
+  
 }
+
+.single_post {
+  margin-top: 8rem;
+}
+
+.single_post_title {
+  font-size: 2rem ;
+  padding-bottom: 2rem;
+}
+
+.post_body {
+  padding: 1.3rem 0px;
+}
+
+
+@media screen and (max-width:768px){
+  .single_post_container {
+    width: 100%;
+    padding: 0px 1rem;
+  }
+}
+
+/*! The above styles are for the Single Post */
+
