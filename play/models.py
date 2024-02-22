@@ -2,6 +2,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.urls import reverse
+from ckeditor.fields import RichTextField
 
 class Category(models.Model):
 	name = models.CharField(max_length=100)
@@ -16,7 +17,9 @@ class Post(models.Model):
 	title = models.CharField(max_length=200)
 	slug = models.SlugField(null=False, unique=True)
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
-	body = models.TextField()
+	img = models.ImageField(upload_to='blog/post/images')
+	description = models.CharField(max_length=200)
+	body = RichTextField(blank=True, null=True)
 	category = models.ForeignKey(Category, on_delete=models.CASCADE, default='', related_name='categories')
 	published_on = models.DateTimeField(auto_now_add=True)
 	updated_on = models.DateTimeField(auto_now=True)

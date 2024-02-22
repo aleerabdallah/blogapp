@@ -5,7 +5,7 @@ admin.site.register(Category)
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('author', 'title', 'category', 'published_on')
+    list_display = ('title', 'author', 'category', 'published_on')
     prepopulated_fields = {"slug": ("title",)}
 
 @admin.register(Comment)

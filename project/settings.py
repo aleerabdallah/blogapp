@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'crispy_forms',
     'crispy_bootstrap5',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -145,6 +146,7 @@ STATIC_ROOT = BASE_DIR / 'productionfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#MEDIA_URL = 
+MEDIA_URL = ''
+MEDIA_ROOT = ''
 
 
