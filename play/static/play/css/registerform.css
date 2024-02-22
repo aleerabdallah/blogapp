@@ -1,38 +1,57 @@
-
-.registerform{
-	display: flex;
-	flex-direction: column;
-	width: 450px;
-	margin: auto;
-	padding: 1em;
+.form_wripper {
+  margin-top: 7rem;
 }
 
-.registerform input{
-	margin-bottom: 1rem;
-	padding: 10px;
+.registerform {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  margin: auto;
+  padding: 1rem;
+  box-shadow: 3px 2px 3px 2px #14283c;
 }
-.registerform input[type='submit']{
-	background-color: #5372F0;
-	border: none;
+
+.registerform input {
+  height: 7vh;
+  padding: 20px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  margin-bottom: 1.4rem;
+  border: 2px solid #14283c;
 }
-.registerform h2{
-	text-align: center;
-	background-color: #5372F0;
-	color: white;
-	padding: 1em 0em 1.5em 0em;
-	margin-bottom: 1em;
+#submit {
+  background-color: #14283c;
+  border: none;
+  color: white;
+  padding: 10px 0px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
 }
-.registerform label{
-	margin-bottom: 10px;
+
+#submit:hover {
+  background: #14283cca;
 }
-.registerform input:focus-within{
-	border: 1px solid lightgray;
-	outline: lightgray;
+
+.registerform h2 {
+  text-align: center;
+  background-color: #14283c;
+  color: white;
+  padding: 1em 0em 1.5em 0em;
+  margin-bottom: 1em;
 }
-.registerform input:valid{
-	border: 2px solid lightgray;
+.registerform label {
+  margin-bottom: 10px;
 }
-registerform input[type='submit']{
-	background-color: #5372F0;
-	border: none;
+.registerform input:focus-within {
+  border: 1px solid lightgray;
+  outline: lightgray;
+}
+.registerform input:valid {
+  border: 2px solid lightgray;
+}
+registerform input[type="submit"] {
+  background-color: #5372f0;
+  border: none;
 }

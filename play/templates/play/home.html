@@ -1,8 +1,9 @@
 {% extends 'base.html' %} {% block content %}
+<!--! Hero  -->
 <div id="hero">
   <h2 class="hero_title animate__animated animate__bounce">
-    Welcome, we provide you with all the necessary and essential information
-    surrounding Tech and other events
+    Welcome, we provide you with all the essential information surrounding Tech
+    and other events
   </h2>
   <p class="hero_description">
     Explore the dynamic intersection of technology and events at our Blog App,
@@ -24,4 +25,44 @@
   </div>
   <div class="content_wripper"></div>
 </section>
+
+<!--! Related Posts  -->
+<section id="related_posts">
+  <div class="post_card">
+    <div class="post_head"></div>
+    <h4 class="post_title">How to make a http request on API in python</h4>
+    <button class="post_btn">Read More</button>
+  </div>
+  <div class="post_card">
+    <div class="post_head"></div>
+    <h4 class="post_title">Writing your first line of Java Program</h4>
+    <button class="post_btn">Read More</button>
+  </div>
+  <div class="post_card">
+    <div class="post_head"></div>
+    <h4 class="post_title">
+      How to link HTML, CSS and your JavaScript files together
+    </h4>
+    <button class="post_btn">Read More</button>
+  </div>
+</section>
+
+<!--! News Letter  -->
+<section id="news_letter">
+  <div class="newletter_wripper">
+    <div class="div">
+      <h1 class="newletter_title">Sign up for our news letter</h1>
+    </div>
+    <div class="div">
+      <input
+        type="email"
+        placeholder="place your email to sing up"
+        required
+        id="input"
+      />
+      <button class="post_btn btn">Read More</button>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
