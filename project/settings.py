@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'ckeditor',
-    'meta'
+    'meta',
+    'django_htmx'
 ]
 
 MIDDLEWARE = [
