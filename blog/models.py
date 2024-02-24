@@ -18,7 +18,7 @@ class Post(models.Model):
 	title = models.CharField(max_length=200)
 	slug = models.SlugField(null=False, unique=True)
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
-	img = models.ImageField(upload_to='blog/post/images')
+	img = models.ImageField(upload_to='article/post/images')
 	description = models.CharField(max_length=200)
 	body = RichTextField(blank=True, null=True)
 	category = models.ForeignKey(Category, on_delete=models.CASCADE, default='', related_name='categories')

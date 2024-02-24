@@ -15,13 +15,13 @@ def index(request):
 	posts = Post.objects.all()
 	context = {'posts': posts}
 
-	return render(request, 'play/home.html', context)
+	return render(request, 'blog/home.html', context)
 
 def posts(request):
 	posts = Post.objects.all()
 	context = {'posts': posts}
 
-	return render(request, 'play/posts.html', context)
+	return render(request, 'blog/posts.html', context)
 
 
 def post(request, slug):
@@ -40,7 +40,7 @@ def post(request, slug):
 	else:
 		form = CommentForm()
 		context = {'form': form, 'comments': comments, 'post': post}
-		return render(request, 'play/post.html', context)
+		return render(request, 'blog/post.html', context)
 
 
 
@@ -62,7 +62,7 @@ def register(request):
 	else:
 		form = RegisterForm()
 		context = {'form': form}
-		return render(request, 'play/register.html', context)
+		return render(request, 'blog/register.html', context)
 
 
 def login_view(request):
@@ -83,16 +83,16 @@ def login_view(request):
 	else:
 		form = LoginForm()
 		context = {'form': form}
-		return render(request, 'play/login.html', context)
+		return render(request, 'blog/login.html', context)
 
 
 
 def aboutUs(request):
-	return render(request, 'play/about.html')
+	return render(request, 'blog/about.html')
 
 
 def contactUs(request):
-	return render(request, 'play/contact_us.html')
+	return render(request, 'blog/contact_us.html')
 
 
 
