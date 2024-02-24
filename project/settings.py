@@ -32,8 +32,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [' .vercel.app', '.now.sh', '127.0.0.1']
-
+# ALLOWED_HOSTS = [' .vercel.app', '.now.sh', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 # Application definition
 
@@ -106,7 +106,7 @@ CSRF_COOKIE_SECURE = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'URL': os.environ.get('DATABASE_URL'),
+        'URL': 'postgresql://postgres:F1afgf1DbF-5**dfBaFb-cEDg14f*bAg@viaduct.proxy.rlwy.net:22874/railway',
         'NAME': os.environ.get('NAME'),
         'USER': os.environ.get('PGUSER'),
         'PASSWORD': os.environ.get('PGPASSWORD'),
