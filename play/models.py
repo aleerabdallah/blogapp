@@ -3,6 +3,7 @@ from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.urls import reverse
 from ckeditor.fields import RichTextField
+from meta.models import ModelMeta
 
 class Category(models.Model):
 	name = models.CharField(max_length=100)
@@ -24,6 +25,7 @@ class Post(models.Model):
 	published_on = models.DateTimeField(auto_now_add=True)
 	updated_on = models.DateTimeField(auto_now=True)
 
+
 	class Meta:
 		ordering = ('-published_on',)
 
@@ -32,6 +34,14 @@ class Post(models.Model):
 	
 	def get_absolute_url(self):
 		return reverse('post_detail', kwargs={"slug": self.slug})
+	
+	@property
+	def get_image_url(self):
+		try:
+			url = self.img.url
+		except:
+			url = ''
+		return url
     
 	def save(self, *args, **kwargs):
 		if not self.slug:
