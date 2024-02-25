@@ -64,6 +64,12 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+STORAGES = { 
+    "staticfiles": { 
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"
+        },
+    }
+
 ROOT_URLCONF = 'project.urls'
 
 
